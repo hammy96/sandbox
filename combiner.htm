@@ -10,7 +10,7 @@
   </style>
 </head>
 <body>
-  <pre>Combine 
+  <pre>Combine v2
     index.html + style.css + main.js
     → Single HTML File
   </pre>
@@ -60,8 +60,7 @@
       }
 
       // Serialize and trigger download
-      const serializer = new XMLSerializer();
-      const combinedHtml = '<!DOCTYPE html>\n' + serializer.serializeToString(doc);
+      const combinedHtml = '<!DOCTYPE html>\n' + doc.documentElement.outerHTML;
 
       const blob = new Blob([combinedHtml], { type: 'text/html' });
       const a = document.createElement('a');
